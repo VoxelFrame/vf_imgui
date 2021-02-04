@@ -28,6 +28,13 @@ list(APPEND IMGUI_PUBLIC_LIBRARIES)
 
 set(NAME imgui)
 add_library(${NAME} STATIC ${IMGUI_SOURCES})
+# SET(CMAKE_EXE_LINKER_FLAGS /NODEFAULTLIB:"libcmt.lib")
+if(MSVC)
+        set_target_properties( ${NAME} PROPERTIES
+        COMPILE_FLAGS "/MTd"
+        )
+endif()
+
 target_link_libraries(${NAME} PUBLIC ${IMGUI_PUBLIC_LIBRARIES})
 target_include_directories(${NAME}
         PUBLIC  ${IMGUI_PUBLIC_INCLUDE_DIRS}
