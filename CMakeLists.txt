@@ -29,6 +29,24 @@ list(APPEND IMGUI_PUBLIC_LIBRARIES)
 set(NAME imgui)
 add_library(${NAME} STATIC ${IMGUI_SOURCES})
 # SET(CMAKE_EXE_LINKER_FLAGS /NODEFAULTLIB:"libcmt.lib")
+# if (MSVC)
+#     if (NOT USE_MSVC_RUNTIME_LIBRARY_DLL)
+#         foreach (flag CMAKE_C_FLAGS
+#                       CMAKE_C_FLAGS_DEBUG
+#                       CMAKE_C_FLAGS_RELEASE
+#                       CMAKE_C_FLAGS_MINSIZEREL
+#                       CMAKE_C_FLAGS_RELWITHDEBINFO)
+
+#             if (${flag} MATCHES "/MD")
+#                 string(REGEX REPLACE "/MD" "/MT" ${flag} "${${flag}}")
+#             endif()
+#             if (${flag} MATCHES "/MDd")
+#                 string(REGEX REPLACE "/MDd" "/MTd" ${flag} "${${flag}}")
+#             endif()
+
+#         endforeach()
+#     endif()
+# endif()
 if(MSVC)
     # message(${CMAKE_BUILD_TYPE})
     IF (CMAKE_BUILD_TYPE MATCHES "Debug")
