@@ -49,15 +49,15 @@ add_library(${NAME} STATIC ${IMGUI_SOURCES})
 # endif()
 if(MSVC)
     # message(${CMAKE_BUILD_TYPE})
-    IF (CMAKE_BUILD_TYPE MATCHES "Debug")
-        set_target_properties( ${NAME} PROPERTIES
-            COMPILE_FLAGS "/MTd"
-        )
-    ELSE()
+    # IF (CMAKE_BUILD_TYPE MATCHES "Debug")
+    #     set_target_properties( ${NAME} PROPERTIES
+    #         COMPILE_FLAGS "/MTd"
+    #     )
+    # ELSE()
         set_target_properties( ${NAME} PROPERTIES
             COMPILE_FLAGS "/MT"
         )
-    ENDIF()
+    # ENDIF()
     
 endif()
     
