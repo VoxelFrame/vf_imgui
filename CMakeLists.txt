@@ -55,7 +55,7 @@ if(MSVC)
     #     )
     # ELSE()
         set_target_properties( ${NAME} PROPERTIES
-            COMPILE_FLAGS "/MT"
+            COMPILE_FLAGS "/MD"
         )
     # ENDIF()
     
